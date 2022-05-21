@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Picture Board</title>
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+		<meta http-equiv="Pragma" content="no-cache"/>
+		<meta http-equiv="Expires" content="0"/>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+	<body>
+	<div class="color-code-container">
+		<div class="color-codes">
+			<p class="white">Color Key:</p>
+			<p class="sixtyfive-day-student white">+65 Day Program</p>
+			<p class="thirty-day-student white">+30 Day Program</p>
+		  <p class="vsp white">+Vocational Student Program</p>
+		</div>
+	</div>
+		<div class="container">
+			<div class="card">
+			  
+			  <div class="sort-menu">
+				<ul style="list-style-type:none">
+				<li><button class="sort-btn" onclick="LoadImages()"></i>All Alphabetical</button></li>
+				<li><button class="sort-btn" onclick="sortByCounselor()"></i>All by Counselor</button></li>
+				<li><button class="sort-btn" onclick="sortByProgram()"></i>All by Program</button></li>
+				<li><button class="sort-btn" onclick="sortByDayIn()">All by Day In</button></li>
+				
+				<li class="filter">
+					<select name="counselor" id="counselor">
+						<option value="*">Unassigned</option>
+						<option value="Ritchie">Pastor Ritchie</option>
+						<option value="Loss">Pastor Loss</option>
+						<option value="Starnes">Pastor Starnes</option>
+						<option value="Turner">Pastor Turner</option>
+						<option value="Dubose">NEW COUNSELOR</option>
+					</select>
+					<button class="filter-btn" onclick="filterByCounselor()">Filter By Counselor</button></li>
+</ul>
+									
+			  </div>
+			</div>
+		  </div>
+		  
+		<main id="studentPictureGrid" class="pictureBoard">
+			
+		</main>
+	
+	<script>onload = LoadImages();</script>
+	</body>
+</html>
