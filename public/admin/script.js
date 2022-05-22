@@ -31,9 +31,12 @@ for (let i=0; i<studentArray.length; i++) {
     var studentID = document.createElement('td');
     studentID.innerHTML = studentArray[i].idNumber;
     tableRow.appendChild(studentID);
-    var button = document.createElement("td");
-    button.innerHTML= `<button class='btn btn-primary' onClick='onClickDelete(${i})'>Delete</button>`;
-    tableRow.appendChild(button);
+    var editButton = document.createElement("td");
+    editButton.innerHTML= `<button class='btn btn-primary' onClick='onClickEdit(${i})'>Edit</button>`;
+    tableRow.appendChild(editButton);
+    var deleteButton = document.createElement("td");
+    deleteButton.innerHTML= `<button class='btn btn-primary' onClick='onClickDelete(${i})'>Delete</button>`;
+    tableRow.appendChild(deleteButton);
     tableBody.appendChild(tableRow);
 
 }
@@ -66,6 +69,17 @@ function onClickDelete(id) {
     }
     }
 
+function onClickEdit(id) {
+    document.getElementById('editfirstName').value = studentArray[id].firstName;
+    document.getElementById('editlastName').value = studentArray[id].lastName;
+    document.getElementById('editidNumber').value = studentArray[id].idNumber;
+    document.getElementById('editcounselor').value = studentArray[id].counselor;
+    document.getElementById('editprogram').value = studentArray[id].program;
+    document.getElementById('editdayin').value = studentArray[id].dayin;
+    document.getElementById('student-table-div').style = "display: none";
+    document.getElementById('new-student').style = "display: none";
+    document.getElementById('edit-student').style = "display: block";
+} 
 function onAddStudent() {
     let addStudentObject = {
         firstName: "",
@@ -94,6 +108,39 @@ function onAddStudent() {
     postRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     let request = JSON.stringify(addStudentObject);
     postRequest.send(request);
+    location.reload();
+
+
+}
+
+function onEditStudent() {
+    let addStudentObject = {
+        firstName: "",
+        lastName: "",
+        idNumber: "",
+        counselor: "",
+        program: "",
+        dayin: new Date()
+    }
+
+    addStudentObject.firstName = document.getElementById('editfirstName').value;
+    addStudentObject.lastName = document.getElementById('editlastName').value;
+    addStudentObject.idNumber = document.getElementById('editidNumber').value;
+    addStudentObject.counselor = document.getElementById('editcounselor').value;
+    addStudentObject.program = document.getElementById('editprogram').value;
+    addStudentObject.dayin = document.getElementById('editdayin').value;
+
+    console.log(addStudentObject);
+    let putRequest = new XMLHttpRequest(); 
+    putRequest.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+        }
+    }
+    putRequest.open("PUT", "/students", false);
+    putRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    let request = JSON.stringify(addStudentObject);
+    putRequest.send(request);
     location.reload();
 
 

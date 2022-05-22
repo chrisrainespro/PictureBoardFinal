@@ -27,7 +27,6 @@ fs.readFile('students.json', 'utf-8', function(err, data){
 app.post('/students', (req, res) => {
 
     const student = req.body;
-    console.log(student);
     studentList.push(student);
     const jsonString = JSON.stringify(studentList);
     fs.writeFile('students.json', jsonString, err => {
@@ -62,6 +61,28 @@ app.delete('/students', (req, res) => {
     })
     res.send(`${studentID} was successfully deleted`);
 })
+
+app.put('/students', (req, res) => {
+
+    const student = req.body;
+    for (i=0 ; i < studentList.length; i++)
+    {
+        if (student.idNumber == studentList[i].idNumber)
+        {
+            studentList[i] = student;
+        }
+    }
+    const jsonString = JSON.stringify(studentList);
+    fs.writeFile('students.json', jsonString, err => {
+        if (err) {
+            console.log('Error writing file', err)
+        } else {
+            console.log('Successfully wrote file')
+        }
+    })
+    res.send(studentList)
+})
+
 
 
 

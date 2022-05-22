@@ -48,7 +48,7 @@ function LoadImages() {
 		let newDate = new Date(convertDayin);
 		inDay.innerHTML = newDate.toDateString();
 		name.innerHTML = studentObjects[i].lastName + ", " + studentObjects[i].firstName;
-		counselor.innerHTML = "Pastor " + studentObjects[i].counselor;
+		counselor.innerHTML = studentObjects[i].counselor;
 		img.src = '/images/' + studentObjects[i].idNumber + ".jpg";
 		article.appendChild(img);
 		article.appendChild(name);
@@ -99,7 +99,7 @@ function sortByCounselor() {
 		let newDate = new Date(convertDayin);
 		inDay.innerHTML = newDate.toDateString();
 		name.innerHTML = studentObjects[i].lastName + ", " + studentObjects[i].firstName;
-		counselor.innerHTML = "Pastor " + studentObjects[i].counselor;
+		counselor.innerHTML = studentObjects[i].counselor;
 		img.src = '/images/' + studentObjects[i].idNumber + ".jpg";
 		article.appendChild(img);
 		article.appendChild(name);
@@ -149,7 +149,7 @@ function sortByProgram() {
 		let newDate = new Date(convertDayin);
 		inDay.innerHTML = newDate.toDateString();
 		name.innerHTML = studentObjects[i].lastName + ", " + studentObjects[i].firstName;
-		counselor.innerHTML = "Pastor " + studentObjects[i].counselor;
+		counselor.innerHTML = studentObjects[i].counselor;
 		img.src = '/images/' + studentObjects[i].idNumber + ".jpg";
 		article.appendChild(img);
 		article.appendChild(name);
@@ -199,7 +199,7 @@ function sortByDayIn() {
 		let newDate = new Date(convertDayin);
 		inDay.innerHTML = newDate.toDateString();
 		name.innerHTML = studentObjects[i].lastName + ", " + studentObjects[i].firstName;
-		counselor.innerHTML = "Pastor " + studentObjects[i].counselor;
+		counselor.innerHTML = studentObjects[i].counselor;
 		img.src = '/images/' + studentObjects[i].idNumber + ".jpg";
 		article.appendChild(img);
 		article.appendChild(name);
@@ -248,7 +248,7 @@ function sortByDayIn() {
 		let newDate = new Date(convertDayin);
 		inDay.innerHTML = newDate.toDateString();
 		name.innerHTML = studentObjects[i].lastName + ", " + studentObjects[i].firstName;
-		counselor.innerHTML = "Pastor " + studentObjects[i].counselor;
+		counselor.innerHTML = studentObjects[i].counselor;
 		img.src = '/images/' + studentObjects[i].idNumber + ".jpg";
 			article.appendChild(img);
 			article.appendChild(name);

@@ -13,6 +13,13 @@ button {
     margin: 0% 15%;
     justify-content: center;
 }
+#edit-student-form {
+    margin: 0% 15%;
+    justify-content: center;
+}
+#edit-student {
+    display: none;
+}
 legend {
     margin-top: 5%;
     margin-left: 15%
